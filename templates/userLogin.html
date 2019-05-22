@@ -1,0 +1,50 @@
+{% extends "header.html" %}
+
+{% block content %}
+<body xmlns:display="http://www.w3.org/1999/xhtml">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="view-allproducts">Shopify World</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+    </ul>
+
+  </div>
+</nav>
+<div class="container-fluid">
+    <div class="row" style="margin: -20px;background-color: lightgrey;padding: 166px 0px 163px 0px;">
+        <div class="col-md-4 col-md-offset-4"style="background-color: white">
+            <div class="text-center container-fluid" style="margin:0px -15px 0px -15px;padding: 0px 0px 2px 0px;background-color: black;color: white">
+                <h3>Login to your account</h3>
+            </div>
+            <form id="frm_userlogin" style="padding-top: 15px">
+                <input type="text" name="fromcart" id="fromcart" value="{{ fromcart }}" style="display: none">
+            <div class="form-group">
+                <input placeholder="Enter your email" type="email" class="form-control" id="email" name="email"
+                       data-rule-required="true" data-msg-required="">
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Enter Password" class="form-control" id="password" name="password"
+                       data-rule-required="true" data-msg-required="">
+            </div>
+            <div class="form-group">
+                <input type="button" onclick="userlogin()" value="Login" class="form-control  btn btn-success " style="border-radius: 61px">
+            </div>
+            </form>
+            <div id="msg"></div>
+            <div class="row text-center">
+                <h5><a href="">Forgot Password?</a> &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp<em><strong>Don't have Account?</strong></em> |<a href="user-signup">  Sign Up</a></h5>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="background-color: black;margin-top: 20px">
+    <div class="row" style="padding-top: 10px">
+        <div class="container-fluid">
+            <p class="text-center text-muted"><strong>&copy 2018-21 Shopify World | Made With <span style="color: darkred" class="glyphicon glyphicon-heart"></span> in India</strong></p>
+        </div>
+    </div>
+</footer>
+</body>
+{% endblock %}

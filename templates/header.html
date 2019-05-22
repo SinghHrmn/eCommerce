@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.css' %}">
+    <script src="{% static 'jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.js'%}"></script>
+
+    <script src="{% static 'dist/jquery.validate.js' %}"></script>
+    <script src="{% static 'jquery-ui.min.js' %}"></script>
+    <script src="{%  static 'myjavascript.js' %}"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+    .error
+    {
+        color:red;
+        font-size:12px;
+        font-weight: normal;
+    }
+    .mydiv1
+    {
+        margin:10px 0px;
+        padding:10px;
+        background-color: #efefef;
+    }
+    .mydiv1:hover
+    {
+        cursor: pointer;
+        box-shadow:2px 2px 7px #000;
+    }
+</style>
+</head>
+{% block content %}
+{% endblock %}
+</html>

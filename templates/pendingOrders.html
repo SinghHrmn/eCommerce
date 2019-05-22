@@ -1,0 +1,10 @@
+{% extends "header.html" %}
+{% block content %}
+<body onload="pendingorders()">
+{% include 'adminNavbar.html' %}
+<h1 class="text-center">Pending Orders</h1>
+<div class="container">
+   <div id="output"></div>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "header.html" %}
+
+
+{% block content %}
+<body>
+{% include "adminNavbar.html" %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="text-center">
+                <h3>ADD CATEGORY</h3>
+            </div>
+            <div class="form-group form-group-lg">
+                <label>Category Name</label>
+                <input placeholder="Enter category Name" type="text" class="form-control" id="categoryName">
+            </div>
+            <div class="form-group form-group-lg">
+                <label>Description</label>
+                <textarea rows="3" placeholder="Enter description" class="form-control" id="description"></textarea>
+            </div>
+            <div class="form-group form-group-lg">
+                <input type="button" onclick="addcategory()" value="Add Category" class="btn-lg  btn-success btn">
+            </div>
+            <div id="msg" ></div>
+        </div>
+        <div class="col-sm-2" ></div>
+    </div>
+</div>
+</body>
+{% endblock %}

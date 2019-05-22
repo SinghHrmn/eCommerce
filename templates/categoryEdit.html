@@ -1,0 +1,33 @@
+{% extends "header.html" %}
+
+
+{% block content %}
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            {% include "adminNavbar.html" %}
+            <div class="text-center">
+                <h3>UPDATE CATEGORY</h3>
+            </div>
+            <form action="save-category" method="get">
+            <div class="form-group">
+                <label>Category Name</label>
+                <input readonly value="{{ categoryName }}" placeholder="Enter category Name" type="text" class="form-control" name="categoryName">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea rows="3" placeholder="Enter description" class="form-control" name="description">{{ description }}</textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn-default  btn-warning btn">
+            </div>
+            </form>
+            <div id="msg"></div>
+        </div>
+        <div class="col-sm-2" ></div>
+    </div>
+</div>
+</body>
+{% endblock %}

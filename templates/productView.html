@@ -1,0 +1,21 @@
+{% extends "header.html" %}
+
+
+{% block content %}
+<body onload="viewproduct()">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            {% include "adminNavbar.html" %}
+            <div class="text-center">
+                <h3>USER DATA</h3>
+            </div>
+            <div id="table"></div>
+        </div>
+        <div class="col-sm-2" ></div>
+    </div>
+</div>
+</body>
+    {% include "footer.html" %}
+{% endblock %}

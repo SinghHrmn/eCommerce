@@ -1,0 +1,66 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+<body style="background-color: lightgrey">
+{% include "userNavbar.html" %}
+<div class="container">
+    <div class="row" style="padding-bottom: 25px">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="text-center">
+                <h3>Billing Info</h3>
+            </div>
+            <form id="frm_usersignup" method="post">
+                <div class="form-group form-group">
+                    <label>Email</label>
+                    <input   value="{{ request.session.USEREMAIL }}" type="text" class="form-control" id="email" name="email"
+                           data-rule-required="true" readonly>
+                </div>
+                <div class="form-group form-group">
+                <label>Net Amount to be Paid</label>
+                <input value="{{ netAmount }}" type="text" class="form-control" id="netAmount" name="netAmount"
+                       data-rule-required="true">
+                </div>
+                <div class="form-group form-group">
+                <label>Fullname</label>
+                <input value="{{fullName}}" type="text" class="form-control" id="fullName" name="fullName"
+                       data-rule-required="true">
+                </div>
+                <div class="form-group form-group">
+                    <label>Mobile Number</label>
+                    <input value="{{mobileNo}}" type="number" class="form-control" id="mobileNo"
+                           data-rule-required="true" maxlength=10>
+                </div>
+                <div class="form-group form-group">
+                    <label>Address</label>
+                    <textarea class="form-control" id="address"
+                              data-rule-required="true">{{ address }}</textarea>
+                </div>
+                <div class="form-group form-group">
+                    <label>City</label>
+                    <input value="{{ city }}" type="text" class="form-control" id="city"
+                           data-rule-required="true">
+                </div>
+                <div class="form-group form-group">
+                    <label>Payment Method</label>
+                    <select  class="form-control" id="paymentMode" data-rule-required="true">
+                        <option value="">Choose</option>
+                        <option value="Online">Online</option>
+                        <option value="COD">COD</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="button" onclick="billinginfo()" value="PAY" class="btn-success btn">
+                </div>
+                <div id="msg">
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% include "footer.html" %}
+
+</body>
+{% endblock %}

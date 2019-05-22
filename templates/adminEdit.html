@@ -1,0 +1,44 @@
+{% extends "header.html" %}
+
+
+{% block content %}
+<body>
+{% include "adminNavbar.html" %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+
+            <div class="text-center">
+                <h3>EDIT USER</h3>
+            </div>
+            <form method="get" action="save-admin">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input value="{{ fullName }}"  name="fullName" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input readonly value="{{ email }}" name="email" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input value="{{ password }}" type="password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>User Type</label>
+                <select class="form-control" name="userType">
+                    <option>Super User</option>
+                    <option>Sub User</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn-default btn-warning btn">
+            </div>
+            </form>
+        </div>
+        <div class="col-sm-2" ></div>
+    </div>
+</div>
+</body>
+{% endblock %}

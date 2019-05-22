@@ -1,0 +1,60 @@
+{% extends "header.html" %}
+
+
+{% block content %}
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                {% include "adminNavbar.html" %}
+                <div class="text-center">
+                    <h3>ADD PRODUCT</h3>
+                </div>
+                <form id="frm_productAdd" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Category Type</label>
+                        <select class="form-control" id="categoryName" name="categoryName" data-rule-required="true">
+                        <option value="">Please Select</option>
+                        {% for foo in mydata %}
+                            <option>{{ foo.categoryName }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Product Name</label>
+                        <input placeholder="Enter product Name" type="text" class="form-control" id="productName" name="productName"
+                               data-rule-required="true">
+                    </div>
+                    <div class="form-group form-group">
+                        <label>Price</label>
+                        <input placeholder="Enter price " type="number" class="form-control" id="price" name="price"
+                               data-rule-required="true">
+                    </div>
+                    <div class="form-group form-group">
+                        <label>MRP</label>
+                        <input placeholder="Enter MRP " type="number" class="form-control" id="mrp" name="mrp"
+                               data-rule-required="true">
+                    </div>
+                    <div class="form-group form-group">
+                        <label>Description</label>
+                        <textarea placeholder="Enter product description" class="form-control" id="description" name="description"
+                                  data-rule-required="true"></textarea>
+                    </div>
+                    <div class="form-group form-group">
+                        <label>Upload Product Photo</label>
+                        <input type="file" class="form-control" id="photo" name="photo" >
+                    </div>
+                    <div class="form-group">
+                        <input type="button" onclick="addproduct()" value="ADD" class="btn-success btn">
+                    </div>
+                    <div id="msg" >
+
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-2" ></div>
+        </div>
+    </div>
+</body>
+{% endblock %}

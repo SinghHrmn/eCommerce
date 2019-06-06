@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import products,category,carttable
+from .models import Product,Category,CartTable
 
 class ProductsAdmin(admin.ModelAdmin):
     list_display = ('id','product_name','price','mrp','is_featured','is_on_sale')
@@ -8,6 +8,6 @@ class ProductsAdmin(admin.ModelAdmin):
     list_filter = ('category_name',)
 
 # Register your models here.
-admin.site.register(products, ProductsAdmin)
-admin.site.register(category)
-admin.site.register(carttable)
+admin.site.register(Product, ProductsAdmin)
+admin.site.register(Category)
+admin.site.register(CartTable)

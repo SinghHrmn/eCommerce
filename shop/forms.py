@@ -1,9 +1,9 @@
 from django import forms
-from .models import carttable
+from .models import CartTable
 
 
 class ShopForm(forms.ModelForm):
 
     class Meta:
-        model = carttable
+        model = CartTable
         fields = '__all__'

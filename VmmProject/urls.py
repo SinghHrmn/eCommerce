@@ -20,7 +20,7 @@ from .mycontrollers import *
 urlpatterns = [
     path('', include('shop.urls')),
     path('shop/', include('shop.urls')),
-    path('cgxuvimr/admin/ajay/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('add-admin', addAdmin),
     path('add-admin-action', addAdminAction),
     path('view-admin', viewAdmin),
@@ -67,4 +67,5 @@ urlpatterns = [
     path('about/',include('about.urls')),
     path('update/', updatedata),
     path('updated/', updated),
+    path('file/', testfile)
 ]

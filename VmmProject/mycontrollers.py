@@ -364,6 +364,8 @@ def addtoCartAction(request):
     request.session['MYCART'] = CARTLIST
     return JsonResponse(CARTLIST, safe=False)
 
+def testfile(request):
+    return render(request, 'file_test.html')
 
 def myCart(request):
     return render(request, 'myCart.html')

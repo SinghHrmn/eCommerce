@@ -211,18 +211,81 @@ function viewallproducts() {
     xml.open("GET", "view-allproduct-action", true);
     xml.send();
 }
+// $('.block2-btn-addcart').each(function(){
+//     var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+//     var idProduct = $(this).parent().parent().parent().find('.block2-id').html();
+//     $(this).on('click', function addtocart(pid) {
+//         var qty = parseInt(document.getElementById('qty').value);
+//         var formdata = new FormData();
+//         formdata.append('id', pid);
+//         formdata.append('qty', qty);
+//         var xml = new XMLHttpRequest();
+//         xml.onreadystatechange = function () {
+//             if (this.readyState == 4 && this.status == 200) {
+//                 var ar = JSON.parse(this.response);
+//                 swal(nameProduct, "is added to cart !", "success");
+//                 }
+            
+//         };
+//         xml.open('POST', 'add-to-cart-action', true);
+//         xml.send(formdata);
+
+        
+//     });
+// });
 
 function addtocart(pid) {
     var qty = parseInt(document.getElementById('qty').value);
-    alert(pid+" "+qty);
+    var formdata = new FormData();
+    formdata.append('id', pid);
+    formdata.append('qty', qty);
     var xml = new XMLHttpRequest();
     xml.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var ar = JSON.parse(this.response);
-            alert("1 Item added to Cart");
+            alert("Product Added");
+            swal(nameProduct, "is added to cart !", "success");
+            
+            }
+            
         }
+    xml.open('POST', 'add-to-cart-action', true);
+    xml.send(formdata);
+
     };
-    alert("addtocart is successfully runing")
+
+function upgradeCartValue(pid){
+    var formdata = new FormData();
+    formdata.append('id', pid);
+    var xml = new XMLHttpRequest();
+    xml.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var ar = JSON.parse(this.response);
+            window.location.href = "viewcart";
+            
+            }
+            
+        }
+    xml.open('POST', 'upgrade-cart-action', true);
+    xml.send(formdata);
+
+}
+
+function downgradeCartValue(pid){
+    var formdata = new FormData();
+    formdata.append('id', pid);
+    var xml = new XMLHttpRequest();
+    xml.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var ar = JSON.parse(this.response);
+            window.location.href = "viewcart";
+            
+            }
+            
+        }
+    xml.open('POST', 'downgrade-cart-action', true);
+    xml.send(formdata);
+
 }
 
 function mycart() {

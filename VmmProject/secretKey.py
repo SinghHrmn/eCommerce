@@ -1,0 +1,1 @@
+secretKey = '^#kqm+p&!ztubq0armbjrzdri^b82tjh_59g-7g482_ggr=&&f'

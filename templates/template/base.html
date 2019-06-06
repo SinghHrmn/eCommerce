@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     {% load static %}
-	<title>Shopify World</title>
+	<title>Shopify World | {% block head_title%}  {% endblock %}</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -42,8 +42,8 @@
 
 </head>
 <body class="animsition">
-{% include 'partials/_header.html' %}
 
+{% include 'partials/_header.html' %}
 {% block content %}
 
 {% endblock %}

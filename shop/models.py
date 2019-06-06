@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-class products(models.Model):
+class Product(models.Model):
     product_name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     mrp = models.DecimalField(max_digits=10, decimal_places=2)
@@ -24,7 +24,7 @@ class products(models.Model):
         verbose_name_plural = 'Products'
 
 
-class category(models.Model):
+class Category(models.Model):
     category_name = models.CharField(max_length=100)
     description = models.TextField()
 
@@ -35,15 +35,26 @@ class category(models.Model):
         verbose_name_plural = 'Categories'
 
 
-class carttable(models.Model):
-    pid = models.ForeignKey(products,on_delete=models.DO_NOTHING)
+class CartTable(models.Model):
+    product = models.ForeignKey(Product,on_delete=models.DO_NOTHING)
     qty = models.IntegerField()
     userid = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    mobile_number = models.CharField(max_length=20)
-    address = models.TextField()
-    payment_method = models.CharField(max_length=50)
-    class Meta:
-        verbose_name_plural = 'carttable'
+    mobile_number = models.CharField(max_length=20,null=True)
+    address = models.TextField(null=True)
+    payment_method = models.CharField(max_length=50, null=True)
+    @property
+    def total(self):
+        amount = self.product.price * self.qty
+        return amount
+    @property
+    def grand_total(self):
+        grandamount = 0
+        obj  = self.objects.all()
+        for item in obj:
+            grandamount += item.product.price * item.qty
+        return grandamount
+         
+    
 
 
 
